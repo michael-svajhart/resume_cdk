@@ -7,7 +7,7 @@ from resume_cdk.resume_cdk_stack import ResumeCdkStack
 
 
 app = cdk.App()
-ResumeCdkStack(app, "ResumeCdkStack",
+ResumeCdkStack(app, "ResumeStack",
     env=cdk.Environment( account="250421909163", region="us-east-1" ),
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,

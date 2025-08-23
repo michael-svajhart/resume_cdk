@@ -4,36 +4,77 @@ import json
 
 
 def handle_bubbleSort(data):
-    old_array = data
-    for i, ele in enumerate(data):
-        print(f"{index} {ele}")
+    n = len(data)
+    
+    # Traverse through all array elements
+    for i in range(n):
+        swapped = False
+
+        # Last i elements are already in place
+        for j in range(0, n-i-1):
+
+            # Traverse the array from 0 to n-i-1
+            # Swap if the element found is greater
+            # than the next element
+            if data[j] > data[j+1]:
+                data[j], data[j+1] = data[j+1], data[j]
+                swapped = True
+        if (swapped == False):
+            break
+
 
     return {
-        "statusCode": 200,
+        "statusCode": 200, 
+        "headers": {
+            "Access-Control-Allow-Origin": "*",  # Or specific origin like "https://www.example.com"
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token",
+        },
         "body": json.dumps({
-            "old_data": old_array,
-            "new_data": data,
+            "data": data,
         })
     }
 
 def handle_insertionSort(data):
     return {
-        "statusCode": 200,
-        "body": json.dumps({"message": "insertionSort called"})
+        "statusCode": 200, 
+        "headers": {
+            "Access-Control-Allow-Origin": "*",  # Or specific origin like "https://www.example.com"
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token",
+        },
+        "body": json.dumps({
+            "data": data,
+        })
     }
 
 def handle_heapSort(data):
     return {
-        "statusCode": 200,
-        "body": json.dumps({"message": "heapSort called"})
+        "statusCode": 200, 
+        "headers": {
+            "Access-Control-Allow-Origin": "*",  # Or specific origin like "https://www.example.com"
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token",
+        },
+        "body": json.dumps({
+            "data": data,
+        })
     }
+
 
 def handle_mergeSort(data):
     return {
-        "statusCode": 200,
-        "body": json.dumps({"message": "mergeSort called"})
+        "statusCode": 200, 
+        "headers": {
+            "Access-Control-Allow-Origin": "*",  # Or specific origin like "https://www.example.com"
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type, X-Amz-Date, Authorization, X-Api-Key, X-Amz-Security-Token",
+        },
+        "body": json.dumps({
+            "data": data,
+        })
     }
-
+    
 
 def handler(event, context):
     print(f"event: {event}")

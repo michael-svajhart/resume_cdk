@@ -12,6 +12,15 @@ class ApiGatewayConstruct(Construct):
             self, f"{id}-RestApi",
             rest_api_name=f"{id}-RestApi",
             description="This is my sample API built with CDK.",
+            default_cors_preflight_options=apigateway.CorsOptions(
+                allow_origins=[
+                    "http://localhost:5173",
+                    "https://michaelsvajhart.com", 
+                    "https://www.michaelsvajhart.com"
+                ],
+                allow_methods=["GET", "POST"],
+                allow_headers=apigateway.Cors.DEFAULT_HEADERS,
+            )
         )
         
         # /sort route with Lambda integration
